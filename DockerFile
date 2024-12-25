@@ -1,0 +1,43 @@
+# Use the official Rust image as the base image
+FROM rust:latest AS builder
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the Cargo.toml and Cargo.lock files
+COPY Cargo.toml Cargo.lock ./
+
+# Copy the source code
+COPY src ./src
+
+# Copy migrations files
+COPY migrations ./migrations
+
+# Copy env files
+COPY .env ./.env
+
+# Install sqlx cli  
+RUN cargo install sqlx-cli
+
+# prepare our sqlx queries
+RUN echo ./.env | export
+RUN cargo sqlx prepare
+
+
+# Build the Rust binary
+RUN cargo build --release
+
+# Use a minimal base image for the final container
+FROM debian:buster-slim
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the built binary from the builder stage
+COPY --from=builder /usr/src/app/target/release/backend-payment-system .
+
+# Expose the port that the application will run on
+EXPOSE 8080
+
+# Set the entrypoint to run the binary
+ENTRYPOINT ["./backend-payment-system"]

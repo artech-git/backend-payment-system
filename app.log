@@ -1,0 +1,63 @@
+[2m2024-12-25T04:17:04.654953Z[0m [32m INFO[0m [2mbackend_payment_system[0m[2m:[0m Listening on port: 3000
+[2m2024-12-25T04:17:04.655933Z[0m [32m INFO[0m [2mbackend_payment_system[0m[2m:[0m Routes constructed successfully
+[2m2024-12-25T04:17:27.270220Z[0m [32m INFO[0m [2mbackend_payment_system[0m[2m:[0m Connected to database
+[2m2024-12-25T04:17:27.270338Z[0m [32m INFO[0m [2mbackend_payment_system[0m[2m:[0m Listening on port: 3000
+[2m2024-12-25T04:17:27.270883Z[0m [32m INFO[0m [2mbackend_payment_system[0m[2m:[0m Routes constructed successfully
+[2m2024-12-25T04:17:36.307017Z[0m [32m INFO[0m [2mbackend_payment_system::routes::auth[0m[2m:[0m Attempting to log in user with email: dan@gmail.com
+[2m2024-12-25T04:17:36.393508Z[0m [32m INFO[0m [2mbackend_payment_system::routes::auth[0m[2m:[0m User found with email: dan@gmail.com
+[2m2024-12-25T04:17:36.715326Z[0m [32m INFO[0m [2mbackend_payment_system::routes::auth[0m[2m:[0m Password verified for user: dan@gmail.com
+[2m2024-12-25T04:17:36.715527Z[0m [32m INFO[0m [2mbackend_payment_system::routes::auth[0m[2m:[0m Generated tokens for user: dan@gmail.com
+[2m2024-12-25T04:17:36.992150Z[0m [32m INFO[0m [2mbackend_payment_system::routes::auth[0m[2m:[0m Stored refresh token for user: dan@gmail.com
+{"timestamp":"2024-12-25T04:20:10.022388Z","level":"INFO","fields":{"message":"Connected to database"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T04:20:10.022758Z","level":"INFO","fields":{"message":"Listening on port: 3000"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T04:20:10.027526Z","level":"INFO","fields":{"message":"Routes constructed successfully"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T04:20:27.914617Z","level":"INFO","fields":{"message":"Attempting to log in user with email: dan@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:20:28.011656Z","level":"INFO","fields":{"message":"User found with email: dan@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:20:28.339174Z","level":"INFO","fields":{"message":"Password verified for user: dan@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:20:28.339371Z","level":"INFO","fields":{"message":"Generated tokens for user: dan@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:20:28.660687Z","level":"INFO","fields":{"message":"Stored refresh token for user: dan@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:38:41.794589Z","level":"INFO","fields":{"message":"user created with email: james@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:38:41.893747Z","level":"INFO","fields":{"message":"stored refresh token for user: james@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:38:55.659397Z","level":"INFO","fields":{"message":"Connected to database"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T04:38:55.659754Z","level":"INFO","fields":{"message":"Listening on port: 3000"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T04:38:55.660879Z","level":"INFO","fields":{"message":"Routes constructed successfully"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T04:39:41.119873Z","level":"INFO","fields":{"message":"user created with email: john@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T04:39:41.208018Z","level":"INFO","fields":{"message":"stored refresh token for user: john@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T06:37:24.285001Z","level":"INFO","fields":{"message":"relation \"_sqlx_migrations\" already exists, skipping"},"target":"sqlx::postgres::notice"}
+{"timestamp":"2024-12-25T06:37:24.495828Z","level":"ERROR","fields":{"message":"Failed to run migrations: Failed to run migrations: migration 1 was previously applied but has been modified"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T06:37:24.496023Z","level":"INFO","fields":{"message":"Connected to database"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T06:37:24.496295Z","level":"INFO","fields":{"message":"Listening on port: 3000"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T06:37:24.498196Z","level":"INFO","fields":{"message":"Routes constructed successfully"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:04:24.056185Z","level":"INFO","fields":{"message":"relation \"_sqlx_migrations\" already exists, skipping"},"target":"sqlx::postgres::notice"}
+{"timestamp":"2024-12-25T08:04:24.259028Z","level":"ERROR","fields":{"message":"Failed to run migrations: Failed to run migrations: migration 1 was previously applied but has been modified"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:04:24.259394Z","level":"INFO","fields":{"message":"Connected to database"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:04:24.259789Z","level":"INFO","fields":{"message":"Listening on port: 3000"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:04:24.262202Z","level":"INFO","fields":{"message":"Routes constructed successfully"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:07:15.269861Z","level":"INFO","fields":{"message":"relation \"_sqlx_migrations\" already exists, skipping"},"target":"sqlx::postgres::notice"}
+{"timestamp":"2024-12-25T08:07:15.493292Z","level":"ERROR","fields":{"message":"Failed to run migrations: Failed to run migrations: migration 1 was previously applied but has been modified"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:07:15.493663Z","level":"INFO","fields":{"message":"Connected to database"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:07:15.494096Z","level":"INFO","fields":{"message":"Listening on port: 3000"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:07:15.497217Z","level":"INFO","fields":{"message":"Routes constructed successfully"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:33:35.457929Z","level":"INFO","fields":{"message":"relation \"_sqlx_migrations\" already exists, skipping"},"target":"sqlx::postgres::notice"}
+{"timestamp":"2024-12-25T08:33:35.697987Z","level":"ERROR","fields":{"message":"Failed to run migrations: Failed to run migrations: migration 1 was previously applied but has been modified"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:33:35.698251Z","level":"INFO","fields":{"message":"Connected to database"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:33:35.698570Z","level":"INFO","fields":{"message":"Listening on port: 3000"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:33:35.700771Z","level":"INFO","fields":{"message":"Routes constructed successfully"},"target":"backend_payment_system"}
+{"timestamp":"2024-12-25T08:34:38.573242Z","level":"INFO","fields":{"message":"Attempting to log in user with email: hari@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T08:36:13.786700Z","level":"INFO","fields":{"message":"user created with email: hari@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T08:36:14.013491Z","level":"INFO","fields":{"message":"stored refresh token for user: hari@gmail.com"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T08:36:53.016378Z","level":"INFO","fields":{"message":"Token validation succeeded for user: 88241015-887d-41c3-907e-d2fc10db8805"},"target":"backend_payment_system::routes::user"}
+{"timestamp":"2024-12-25T08:36:53.196681Z","level":"INFO","fields":{"message":"User found: 88241015-887d-41c3-907e-d2fc10db8805"},"target":"backend_payment_system::routes::user"}
+{"timestamp":"2024-12-25T08:37:32.882883Z","level":"INFO","fields":{"message":"User discovered in database"},"target":"backend_payment_system::routes::user"}
+{"timestamp":"2024-12-25T08:37:33.058595Z","level":"INFO","fields":{"message":"User balance updated successfully for user: 88241015-887d-41c3-907e-d2fc10db8805. New balance: 800.0000"},"target":"backend_payment_system::routes::user"}
+{"timestamp":"2024-12-25T08:39:33.133271Z","level":"INFO","fields":{"message":"Starting transaction creation process"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:39:33.133665Z","level":"ERROR","fields":{"message":"Error decoding token: Error(ExpiredSignature)"},"target":"backend_payment_system::routes::auth"}
+{"timestamp":"2024-12-25T08:39:33.133821Z","level":"ERROR","fields":{"message":"Invalid token: 401 Unauthorized"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:39:48.468922Z","level":"INFO","fields":{"message":"Starting transaction creation process"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:39:48.976525Z","level":"INFO","fields":{"message":"Transaction successful with id: 8b340239-a504-4900-ae86-5e8d0da99f4f"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:42:28.308591Z","level":"INFO","fields":{"message":"Starting transaction creation process"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:42:28.769932Z","level":"INFO","fields":{"message":"Transaction successful with id: ed1ea309-e1cd-451e-851b-fe98b1507ee3"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:42:36.451273Z","level":"INFO","fields":{"message":"Starting transaction creation process"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:42:36.815117Z","level":"INFO","fields":{"message":"Transaction successful with id: ee73fac7-c433-40b5-8302-4f3b26cdf2ef"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:42:41.193872Z","level":"INFO","fields":{"message":"Starting transaction creation process"},"target":"backend_payment_system::routes::tx"}
+{"timestamp":"2024-12-25T08:42:41.556288Z","level":"INFO","fields":{"message":"Transaction successful with id: 6dbe6907-5fc3-4df1-a7e5-968f8fef87a3"},"target":"backend_payment_system::routes::tx"}
