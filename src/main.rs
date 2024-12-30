@@ -4,6 +4,7 @@ use std::sync::Arc;
 use axum::Router;
 use sqlx::{postgres::PgPoolOptions, PgPool};
 use tokio::net::TcpListener;
+use tower_http::{compression::CompressionLayer, limit::RequestBodyLimitLayer, validate_request::ValidateRequestHeaderLayer};
 use tracing_subscriber::{fmt::{writer::BoxMakeWriter, Layer}, layer::SubscriberExt, EnvFilter, Registry};
 
 use routes::auth::AuthService;
@@ -45,7 +46,7 @@ async fn main() {
             db
         },
         Err(err) => {
-            println!("Failed to connect to database: {}", err);
+            tracing::error!("Failed to connect to database: {}", err);
             process::exit(1);
         }
     };
@@ -56,7 +57,7 @@ async fn main() {
             port
         }
         Err(err) => {
-            println!("Failed to bind to port: {}", err);
+            tracing::error!("Failed to bind to port: {}", err);
             process::exit(1);
         }
     };
@@ -67,7 +68,7 @@ async fn main() {
             router
         }
         Err(err) => {
-            println!("Failed to construct routes: {}", err);
+            tracing::error!("Failed to construct routes: {}", err);
             process::exit(1);
         }
     };
@@ -75,7 +76,7 @@ async fn main() {
     //start the http service
     let http_service = axum::serve(listener, router);
     if let Err(err) = http_service.await {
-        println!("Failed to start server: {}", err);
+        tracing::error!("Failed to start server: {}", err);
         process::exit(1);
     }
 }
@@ -87,13 +88,17 @@ fn process_begin(db_pool: PgPool, jwt_secret: String) -> Result<Router, String> 
     let service = Arc::new(AuthService::new(repo, jwt_secret));
 
     let auth_routes = routes::auth::auth_routes(service.clone());
-    let user_routes = routes::user::user_routes(service.clone(), db_pool.clone());
-    let transfer_routes = routes::tx::tx_route(service.clone(), db_pool.clone());
+    let user_routes = routes::user::user_routes(service.clone(), db_pool.clone())
+        .route_layer(ValidateRequestHeaderLayer::accept("Authorization"));
+    let transfer_routes = routes::tx::tx_route(service.clone(), db_pool.clone())
+        .route_layer(ValidateRequestHeaderLayer::accept("Authorization"))
+        .route_layer(CompressionLayer::new().gzip(true));
 
     let router = head_route
         .nest("/v1", auth_routes)
         .nest("/v1", user_routes)
-        .nest("/v1", transfer_routes);
+        .nest("/v1", transfer_routes)
+        .route_layer(RequestBodyLimitLayer::new(1024 * 1024 * 10)); //10KB limit
 
     Ok(router)
 }
@@ -116,7 +121,7 @@ async fn process_database(url: &str, max_conn_pool: u32) -> Result<PgPool, Strin
         },
         Err(err) => {
             // if it fails we assume to continue believing that the database is already migrated
-            tracing::error!("Failed to run migrations: {err}");
+            tracing::warn!("Failed to run migrations: {err}");
         },
     }
 

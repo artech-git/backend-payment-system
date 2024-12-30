@@ -7,7 +7,7 @@ edition = "2021"
 
 tokio = {version = "1.42.0", features = ["full"]}
 axum = "0.7.9"
-# tower-http = "0.6.2"
+tower-http = {version = "0.6.2", features = ["compression-gzip", "validate-request", "limit"]}
 sqlx = { version = "0.8.2", features = [ "postgres", "runtime-tokio-rustls", "macros", "uuid", "time", "rust_decimal", "chrono" , "default"] }
 
 serde = {version = "1.0.216", features = ["derive"]} 
